@@ -1,0 +1,62 @@
+
+ <h2>{{data.name}}</h2>
+ <h1>הזמנות לחודש {{data.month}}</h1>
+ <button (click)="sortBySales()">sort</button>
+<table class="table table-bordered table-striped table-sm dataTable no-footer dtr-column table-hover pointer">
+    <thead>
+        <tr role="row">
+            <th>תאריך </th>
+        <th>מספר מכירות </th>
+        <th>סכום מכירה</th>
+        <th>פריטים</th>
+        <th>מספר קונים</th>
+        <th>מחיר ממוצע לפריט</th>
+        <th>עריכה</th>
+        </tr>
+    </thead>
+
+    <tbody *ngFor="let s of sales_;let i=index">
+        <tr role="row">
+            
+            <td>
+                <input type="text" [(ngModel)]="s.date" [disabled]="!isEdit[i]">
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="s.orders" [disabled]="!isEdit[i]">
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="s.sales" [disabled]="!isEdit[i]">
+            </td>
+           
+            <td>
+                <input type="text" [(ngModel)]="s.items" [disabled]="!isEdit[i]">
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="s.customers" [disabled]="!isEdit[i]">
+            </td>
+
+        <td>{{s.avarage}}</td>
+        <td><button (click)="edit(i)">edit</button></td>
+        </tr>
+        </tbody>
+        <!-- <tfoot class="grey lighten-5 w-100">
+            <tr>
+              <td colspan="4">
+                <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
+              </td>
+            </tr>
+            </tfoot> -->
+</table>
+<button (click)="checkincrease() ">checkincrease</button>
+<div>טווח הימים הארוך ביותר בהם היתה עליה
+   מתאריך <span [(ngModel)]="first_day_increase" ></span>
+   עד תאריך <span>{{last_day_increase}}</span>
+   
+</div>
+
+
+<div>טווח הימים הארוך ביותר בהם היתה ירידה
+    מתאריך <span [(ngModel)]="first_day_Falling_prices  " ></span>
+    עד תאריך <span>{{last_day_Falling_prices}}</span>
+    
+ </div>
