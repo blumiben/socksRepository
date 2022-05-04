@@ -6,7 +6,7 @@ export class Sales {
    orders!:number;
    items!: number;
    customers!: number
-   // avarage:number
+   avarage:number
   }
   
 export class soks_sales {
